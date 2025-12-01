@@ -358,6 +358,23 @@
 	<script src="/assets/js/moment.min.js"></script>
 	<script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
     <script src="/assets/js/app.js"></script>
+
+    <script>
+    document.querySelector("form").addEventListener("submit", function (e) {
+        console.log("Hereeee")
+        const phoneInput = document.querySelector("input[name='phone']").value.trim();
+
+        // Allow only digits
+        const digitsOnly = phoneInput.replace(/\D/g, "");
+
+        if (digitsOnly.length !== 10) {
+            e.preventDefault();
+            alert("Phone number must be exactly 10 digits.");
+        }
+    });
+    </script>
+
+
 </body>
 
 
