@@ -507,6 +507,27 @@
                 });
             });
      </script>
+     <script>
+    document.querySelector("form").addEventListener("submit", function (e) {
+        console.log("Hereeeeee")
+        const dateInput = document.querySelector("input[name='date']").value;
+
+        if (!dateInput) return; // if empty, let backend validate
+
+        const selectedDate = new Date(dateInput);
+        const now = new Date();
+
+        // compare date only (ignoring time)
+        selectedDate.setHours(0,0,0,0);
+        now.setHours(0,0,0,0);
+
+        if (selectedDate <= now) {
+            e.preventDefault();
+            alert("Appointment date should be in the future.");
+        }
+    });
+</script>
+
 </body>
 
 
